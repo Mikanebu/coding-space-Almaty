@@ -2,7 +2,14 @@ let express = require('express')
 let app = express()
 let things = require('./things.js')
 let bodyParser = require('body-parser')
-let bodyParser = require('cookie-parser')
+let cookieParser = require('cookie-parser')
+
+app.set('view engine', 'pug');
+app.set('views','./views');
+
+app.get('/first_template', function(req, res){
+   res.render('first_view');
+});
 
 app.use(cookieParser())
 //To parse URL encoded data
